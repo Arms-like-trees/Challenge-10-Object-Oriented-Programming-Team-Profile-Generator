@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 
-var emplSelect = {
+const emplSelect = {
     //Used to determine which eployee selected
     type: 'list',
     message: 'What is employee classification?',
@@ -11,7 +11,7 @@ var emplSelect = {
     choices: ['Intern', 'Engineer', 'Manager']
 }
 
-var emplAllQuestions = [{
+const emplAllQuestions = [{
     type: 'input',
     message: 'What is the employee name?',
     name: 'name',
@@ -47,7 +47,7 @@ var emplAllQuestions = [{
 }
 ]
 
-var emplManager = () => {
+const emplManager = () => {
     emplAllQuestions.push({
         type: 'input',
         message: 'What is the Office number?',
@@ -62,7 +62,7 @@ var emplManager = () => {
     })
 }
 
-var emplEngin = () => {
+const emplEngin = () => {
     emplAllQuestions.push({
         type: 'input',
         message: 'What is employee Github username?',
@@ -77,7 +77,7 @@ var emplEngin = () => {
     })
 }
 
-var emplIntern = () => {
+const emplIntern = () => {
 
     emplAllQuestions.push({
         type: 'input',
@@ -93,12 +93,12 @@ var emplIntern = () => {
     })
 }
 
-var init = () => {
+const init = () => {
     return (
         inquirer
             .prompt(emplSelect)
-            .then((choice) => {
-                console.log(JSON.stringify(choice));
+            .then((select) => {
+                console.log(JSON.stringify(select));
             })
             .then((choice) => {
                 if (choice.employee === 'Manager') {
