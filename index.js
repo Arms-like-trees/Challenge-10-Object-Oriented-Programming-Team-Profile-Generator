@@ -98,6 +98,9 @@ var init = () => {
         inquirer
             .prompt(emplSelect)
             .then((choice) => {
+                console.log(JSON.stringify(choice));
+            })
+            .then((choice) => {
                 if (choice.employee === 'Manager') {
                     emplManager()
                 } else if (choice.employee === 'Engineer') {
