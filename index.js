@@ -11,7 +11,8 @@ const emplSelect = {
     choices: ['Intern', 'Engineer', 'Manager']
 }
 
-const emplAllQuestions = [{
+const emplAllQuestions = 
+[{
     type: 'input',
     message: 'What is the employee name?',
     name: 'name',
@@ -60,6 +61,7 @@ const emplManager = () => {
             return true
         }
     })
+   
 }
 
 const emplEngin = () => {
@@ -91,6 +93,7 @@ const emplIntern = () => {
             return true
         }
     })
+    
 }
 
 const init = () => {
@@ -98,22 +101,26 @@ const init = () => {
         inquirer
             .prompt(emplSelect)
             .then((select) => {
-                console.log(JSON.stringify(select));
-            })
-            .then((choice) => {
-                if (choice.employee === 'Manager') {
-                    emplManager()
-                } else if (choice.employee === 'Engineer') {
-                    emplEngin()
+                console.log(select);
+                if (select.employee === 'Manager') {
+                    emplManager();
+                    inquirer
+                    .prompt(emplAllQuestions)
+                } else if (select.employee === 'Engineer') {
+                    emplEngin();
+                    inquirer
+                    .prompt(emplAllQuestions)
                 } else {
-                    emplIntern()
+                    emplIntern();
+                    inquirer
+                    .prompt(emplAllQuestions)
                 }
 
 
             })
-            .then((data) => {
-                console.log(JSON.stringify(data));
-            })
+            // .then((data) => {
+            //     console.log(JSON.stringify(data));
+            // })
     )
 }
 
