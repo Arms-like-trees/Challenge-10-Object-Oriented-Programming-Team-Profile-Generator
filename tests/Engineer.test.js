@@ -7,8 +7,9 @@ describe('Engineer', () => {
             const name = "TestName"
             const id = 3455343
             const email = "myemail@gmail.com"
+            const gitUser = 'joeThePlumber'
 
-            const testEngineer = new Engineer(name, id, email)
+            const testEngineer = new Engineer(name, id, email, gitUser)
 
             expect(testEngineer.getName()).toBe(name)
 
@@ -19,10 +20,24 @@ describe('Engineer', () => {
             const name = "TestName"
             const id = 3455343
             const email = "myemail@gmail.com"
+            const gitUser = 'joeThePlumber'
 
-            const testEngineer = new Engineer(name, id, email)
+            const testEngineer = new Engineer(name, id, email, gitUser)
 
             expect(testEngineer.getId()).toBe(id)
+
+        })
+    });
+    describe('email check', () => {
+        it('email should match .getemail', () => {
+            const name = "TestName"
+            const id = 3455343
+            const email = "myemail@gmail.com"
+            const gitUser = 'joeThePlumber'
+
+            const testEngineer = new Engineer(name, id, email, gitUser)
+
+            expect(testEngineer.getEmail()).toBe(email)
 
         })
     });
@@ -40,25 +55,15 @@ describe('Engineer', () => {
         })
     });
 
-    describe('email check', () => {
-        it('email should match .getemail', () => {
-            const name = "TestName"
-            const id = 3455343
-            const email = "myemail@gmail.com"
-
-            const testEngineer = new Engineer(name, id, email)
-
-            expect(testEngineer.getEmail()).toBe(email)
-
-        })
-    });
+    
     describe('role check', () => {
         it('getRole should = Engineer', () => {
             const name = "TestName"
             const id = 3455343
             const email = "myemail@gmail.com"
+            const gitUser = 'joeThePlumber'
 
-            const testEngineer = new Engineer(name, id, email)
+            const testEngineer = new Engineer(name, id, email, gitUser)
 
             expect(testEngineer.getRole()).toBe('Engineer')
 
