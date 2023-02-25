@@ -23,7 +23,7 @@ function team(arrAssets){
             <ul class="engineer-info container">
                 <li class="id">ID: ${engineer.id}</li>
                 <li class="engineer-email">Email: <a href="mailto: ${engineer.email}">${engineer.email}</a></li>
-                <li class="engineer-username">Github: <a href="https://github.com/${engineer.username}"></a>${engineer.username}</li>
+                <li class="engineer-username">Github: <a href="https://github.com/${engineer.gitHub}"></a>${engineer.gitHub}</li>
             </ul>
         </div>
         `;
