@@ -7,6 +7,7 @@ const generateHTML = require('./dist/generatHTML');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const arrAssets = [];
 
 const emplSelect = {
     //Used to determine which eployee selected
@@ -75,13 +76,16 @@ const init = () => {
 
 
                             .then((data) => {
-                                const intern = new Manager(
+                                const manager = new Manager(
                                     data.name,
                                     data.id,
                                     data.email,
                                     data.officeNumber
                                 );
-                                console.log((intern))
+                                console.log((manager))
+                                arrAssets.push(manager)
+                                console.log(arrAssets)
+                                createHTML();
                                 anotherEmpl();
                             }
                             )
@@ -136,13 +140,16 @@ const init = () => {
                             }
                             ])
                             .then((data) => {
-                                const intern = new Engineer(
+                                const engineer = new Engineer(
                                     data.name,
                                     data.id,
                                     data.email,
                                     data.username
                                 );
-                                console.log((intern))
+                                console.log((engineer))
+                                arrAssets.push(engineer)
+                                console.log(arrAssets)
+                                createHTML();
                                 anotherEmpl();
                             })
                     
@@ -203,6 +210,9 @@ const init = () => {
                                     data.school
                                 );
                                 console.log((intern))
+                                arrAssets.push(intern)
+                                console.log(arrAssets)
+                                createHTML();
                                 anotherEmpl();
                             })
                     
@@ -231,6 +241,10 @@ const anotherEmpl = () => {
         })
 }
 
+const createHTML = () => {
+    const data = generateHTML(arrAssets);
+    fs.writeFile('index.html', data, (err) => { return err ? console.error(err) : console.log('Success - writfile') })
 
+}
 
 init();
